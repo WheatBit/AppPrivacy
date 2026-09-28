@@ -11,15 +11,16 @@
     <header class="page">
       <p class="eyebrow">Methodical Enterprises LLC</p>
       <h1>Book Tracker: Lexi — Privacy Policy</h1>
-      <p class="updated">Last updated: September 4, 2026</p>
+      <p class="updated">Last updated: September 28, 2026</p>
     </header>
 
     <div class="tldr">
-      <p><strong>The short version:</strong> Lexi keeps your reading on your device.
-      It doesn't collect your data and doesn't track you. We have no accounts and no
-      servers, and nothing you write reaches us. The one thing that leaves your
-      device is a book's barcode number, sent to look up its title and cover — and
-      only when you ask for that.</p>
+      <p><strong>The short version:</strong> Lexi keeps your library on your device.
+      There are no accounts, no ads and no tracking. If you choose to read with
+      friends, what you share with them (your place in a shared book, your notes on
+      it, messages and book clubs) travels through Apple's iCloud. Photos of your
+      books' spines are shared only if you turn that on. Looking up a book sends its
+      barcode number or title to public book databases.</p>
     </div>
 
     <h2>Who this covers</h2>
@@ -27,68 +28,92 @@
       (listed on the App Store as <em>Book Tracker: Lexi</em>, and formerly named
       <em>Lunara</em>), published by Methodical Enterprises LLC ("we," "us").</p>
 
-    <h2>What we collect</h2>
-    <p><strong>Nothing.</strong> Lexi has no user accounts and no backend servers.
-      We never receive your books, reading history, notes, or any information about
-      how you use the app.</p>
-
     <h2>What stays on your device</h2>
-    <p>Your books, reading progress, notes, and settings are stored only on your
-      device. This information never leaves your device except through features of
-      iOS that you control (such as your own iCloud device backup) and the book
-      lookup described next.</p>
+    <p>Your books, reading progress, reading log, notes, shelves, photos you take of
+      covers and spines, and settings are stored on your device. Lexi has no user
+      accounts and we run no servers. This information leaves your device only
+      through features of iOS you control (such as your own iCloud device backup)
+      and the features described below, each of which you choose to use.</p>
 
     <h2>Looking up a book online</h2>
-    <p>When you scan a barcode or search for a book, Lexi sends <strong>that book's
-      ISBN or search words</strong> to public book databases so it can fill in the
-      title, author, and cover for you:</p>
+    <p>When you scan a barcode, search for a book, or open an author's other
+      books, Lexi sends <strong>that book's ISBN, or its title and author</strong>, to
+      public book databases to fill in its details and cover:</p>
     <ul>
       <li><strong>Open Library</strong> (openlibrary.org), run by the Internet
-        Archive — for book details and cover images.</li>
-      <li><strong>Google Books</strong> (googleapis.com) — as a fallback when Open
-        Library has no match.</li>
+        Archive.</li>
+      <li><strong>Google Books</strong> (googleapis.com).</li>
+      <li><strong>Apple Books</strong> search (itunes.apple.com).</li>
     </ul>
-    <p>Only the book identifier is sent. Your notes, reading progress, library, and
-      any information about you are <strong>never</strong> included, and no account
-      or device identifier is attached — the request carries no login and is made
-      without stored cookies. These services have their own privacy policies and
-      will see the network request, including the originating IP address, as with
-      any web request. Lexi works without this: you can always add a book by typing
-      its details in yourself.</p>
+    <p>Only the book's identifier or title is sent. Your notes, reading progress,
+      library, and any information about you are <strong>never</strong> included,
+      and no account or device identifier is attached. These services have their
+      own privacy policies and see the network request, including your IP address,
+      as with any web request. You can always add a book by typing it in
+      yourself.</p>
 
-    <h2>Photo Library access</h2>
-    <p>Lexi can ask permission to open your photo library so you can choose a photo
-      to use as a book cover. When you grant this:</p>
+    <h2>Reading together with friends</h2>
+    <p>Reading together is optional. Friends are added only in person, by scanning
+      each other's code. If you use it, Lexi stores the following in
+      <strong>Apple's CloudKit</strong> (part of iCloud), in Lexi's public database,
+      so your friends' devices can receive it:</p>
     <ul>
-      <li>Lexi uses the photo you pick <strong>only as a cover image inside the
-        app</strong>, stored on your device.</li>
-      <li>Your photos are <strong>never sent off your device</strong> and are never
-        shared with us or any third party.</li>
-      <li>You can revoke photo access at any time in <em>iOS Settings &rarr; Privacy
-        &amp; Security &rarr; Photos</em>.</li>
+      <li>A <strong>random reader ID</strong>, made on your device. It is what your
+        friend code contains; it is not your name, Apple ID or phone number.</li>
+      <li>For books you choose to share with a friend: <strong>your place in the
+        book</strong> and <strong>the notes you write on it</strong>, with where in
+        the book each note opens.</li>
+      <li><strong>Messages</strong> you send, with the time and the reader IDs of
+        the sender and recipient, and <strong>book clubs</strong> you create or
+        join: their name, members' reader IDs, and the books on their shelf.</li>
+      <li>If you <strong>report</strong> a message or note, a copy of what it said
+        and its ID, so it can be reviewed.</li>
     </ul>
+    <p>The names you give your friends stay on your device and are never uploaded.
+      To tell you when a message arrives, Lexi asks iCloud to notify your device of
+      messages addressed to your reader ID; the notification's text is written on
+      your device. Reading together needs an iCloud account. Apple stores this data
+      under its own privacy policy, and we can see it only through Apple's CloudKit
+      tools, which we use solely to review reports and remove content that breaks
+      Lexi's community rules.</p>
 
-    <h2>Camera access</h2>
-    <p>Lexi can ask permission to use the camera to scan a book's barcode so it can
-      fill in the title for you. Camera frames are processed on your device to read
-      the code and are not recorded, stored, or sent anywhere. You can revoke camera
-      access at any time in <em>iOS Settings &rarr; Privacy &amp; Security &rarr;
-      Camera</em>.</p>
+    <h2>The spine library</h2>
+    <p>Lexi can show your book the real spine of its edition, photographed by
+      another Lexi reader. To find one, Lexi asks iCloud for spines by a code
+      derived from the book's ISBN (or its title and author). You can turn this off
+      in <em>Settings &rarr; Spine Library</em>.</p>
+    <p>If you turn on <strong>Share my spine photos</strong>, the photos you take of
+      your own books' spines are stored in Lexi's public CloudKit database, with the
+      book's ISBN or title and a random contributor ID (separate from your reader
+      ID), so readers with the same edition can see them. Only spine photos are
+      shared, never covers or other pictures, and only when the lettering on the
+      photo names the book. Any shared spine can be reported and removed.</p>
+
+    <h2>Camera and photo library</h2>
+    <p>Lexi can use the camera to scan a book's barcode, to photograph a cover or
+      spine, and to read a whole shelf of spines from one photo. Barcode frames and
+      shelf photos are processed on your device and not kept. Cover and spine
+      photos you take, or choose from your photo library, are stored on your device
+      as that book's image; a spine photo leaves your device only if you turn on
+      spine sharing, as described above. You can revoke access at any time in
+      <em>iOS Settings &rarr; Privacy &amp; Security</em>.</p>
 
     <h2>Analytics, tracking, and advertising</h2>
     <p>Lexi contains no analytics, no advertising SDKs, and no tracking of any kind.
-      We do not build a profile of you and do not track you across apps or websites.
-      The only outside services it contacts are the book databases named above, and
-      only to identify a book you asked about.</p>
+      We do not build a profile of you and do not track you across apps or
+      websites.</p>
 
     <h2>Children's privacy</h2>
-    <p>Lexi does not collect personal information from anyone, including children.
-      It is safe for readers of all ages.</p>
+    <p>Lexi does not ask for anyone's name, email or age, and its reading-together
+      features connect only people who have met in person to scan each other's
+      code.</p>
 
     <h2>Keeping and deleting your data</h2>
-    <p>Because your data lives only on your device, you are always in control.
-      Deleting the Lexi app removes its data from your device. We hold nothing to
-      delete, because we never had it.</p>
+    <p>Your library lives on your device, and deleting Lexi removes it. What you
+      shared through reading together or the spine library stays in iCloud until it
+      is removed. Blocking or removing a friend removes their content from your
+      device. To have everything you shared deleted, email us the code shown in
+      <em>Settings &rarr; Reading Friends</em> and we will delete it.</p>
 
     <h2>Changes to this policy</h2>
     <p>If we change this policy, we'll update the date at the top of this page and
