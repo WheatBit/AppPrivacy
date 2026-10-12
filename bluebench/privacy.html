@@ -11,46 +11,77 @@
     <header class="page">
       <p class="eyebrow">Methodical Enterprises LLC</p>
       <h1>BlueBench — Privacy Policy</h1>
-      <p class="updated">Last updated: July 20, 2026</p>
+      <p class="updated">Last updated: October 12, 2026</p>
     </header>
 
     <div class="tldr">
       <p><strong>The short version:</strong> BlueBench runs entirely on your device.
       It doesn't collect your data, doesn't track you, and doesn't send anything to
-      us or to anyone else. There are no accounts and no servers.</p>
+      us or to anyone else. It makes no internet connections at all. There are no
+      accounts and no servers.</p>
     </div>
 
     <h2>Who this covers</h2>
     <p>This policy applies to the BlueBench app for iPhone and iPad, published by
       Methodical Enterprises LLC ("we," "us"). BlueBench is a Bluetooth Low Energy
-      (BLE) scanner and toolkit, with a dedicated section for updating firmware on,
-      and streaming audio from, supported Ambiq devices.</p>
+      (BLE) scanner and explorer. It also has a section for Ambiq devices, which
+      does not yet update firmware or stream audio. If we add those features, we'll
+      update this policy first.</p>
 
     <h2>What we collect</h2>
     <p><strong>Nothing.</strong> BlueBench has no user accounts and no backend
-      servers. We never receive information about you, the Bluetooth devices you
-      connect to, or how you use the app.</p>
+      servers, and it contains no code that connects to the internet. We never
+      receive information about you, the Bluetooth devices around you, or how you
+      use the app.</p>
 
     <h2>Bluetooth access</h2>
     <p>BlueBench asks permission to use Bluetooth so it can do its job. When you grant
       this:</p>
     <ul>
-      <li>BlueBench scans for nearby Bluetooth Low Energy devices and connects to the
-        ones you choose, so you can inspect their services and characteristics.</li>
-      <li>For supported Ambiq devices, it can update firmware and stream audio over
-        that direct Bluetooth connection.</li>
+      <li>BlueBench scans for nearby Bluetooth Low Energy devices and shows what they
+        advertise, such as their names and signal strength.</li>
+      <li>It connects only to the devices you choose, so you can see their services
+        and characteristics, read and write values, and subscribe to updates from
+        them.</li>
       <li>All of this happens <strong>directly between your device and the Bluetooth
-        peripheral</strong>. Nothing is sent to us or to any third party over the
+        device</strong>. Nothing is sent to us or to any third party over the
         internet.</li>
       <li>You can revoke Bluetooth access at any time in <em>iOS Settings &rarr;
         Privacy &amp; Security &rarr; Bluetooth</em>.</li>
     </ul>
 
     <h2>What stays on your device</h2>
-    <p>Any logs, saved devices, notes, or preferences you create in BlueBench are
-      stored only on your device. This information never leaves your device except
-      through features of iOS that you control, such as your own iCloud device backup
-      or when you deliberately export or share a file yourself.</p>
+    <ul>
+      <li><strong>Scan results</strong> are kept in memory only while the app is
+        running. They are not saved.</li>
+      <li><strong>The activity log</strong> (scans, connections, values read and
+        written, and any markers or notes you add) is also kept in memory only, and
+        is gone when the app is closed. BlueBench also writes these log lines to the
+        iOS system log on your device, where Apple's developer tools can show
+        them.</li>
+      <li><strong>Test recording sessions</strong> are saved only if you start one.
+        Each saved session holds its name, times, summary numbers, and the log lines
+        captured while it ran. Sessions stay on your device until you delete
+        them.</li>
+      <li><strong>Settings</strong>, such as the scan interval, are stored on your
+        device.</li>
+    </ul>
+    <p>This information never leaves your device except through features of iOS
+      that you control, such as your own iCloud device backup, or when you
+      deliberately export or share a file yourself.</p>
+
+    <h2>Exporting and sharing</h2>
+    <p>You can export the activity log as a text or CSV file, and a saved session as
+      a CSV file of its log lines and a JSON file of its summary. You can also copy a
+      value to the clipboard. These files are created on your device and go wherever
+      <em>you</em> send them using the iOS share sheet. We are not involved and
+      receive no copy.</p>
+
+    <h2>Microphone, files, and Apple Intelligence</h2>
+    <p>BlueBench does not use the microphone and never asks for microphone access.
+      It does not download, open, or send firmware files. It does not use Apple
+      Intelligence. If a future version adds any of these, we'll update this policy
+      first.</p>
 
     <h2>Analytics, tracking, and advertising</h2>
     <p>BlueBench contains no analytics, no third-party SDKs, no advertising, and no
@@ -61,9 +92,10 @@
       children.</p>
 
     <h2>Keeping and deleting your data</h2>
-    <p>Because your data lives only on your device, you are always in control.
-      Deleting the BlueBench app removes its data from your device. We hold nothing
-      to delete, because we never had it.</p>
+    <p>Because your data lives only on your device, you are always in control. You
+      can delete any saved test session in the app. Deleting the BlueBench app
+      removes all of its data from your device. We hold nothing to delete, because
+      we never had it.</p>
 
     <h2>Changes to this policy</h2>
     <p>If we change this policy, we'll update the date at the top of this page and

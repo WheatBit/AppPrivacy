@@ -11,16 +11,18 @@
     <header class="page">
       <p class="eyebrow">Methodical Enterprises LLC</p>
       <h1>Book Tracker: Lexi — Privacy Policy</h1>
-      <p class="updated">Last updated: September 28, 2026</p>
+      <p class="updated">Last updated: October 12, 2026</p>
     </header>
 
     <div class="tldr">
       <p><strong>The short version:</strong> Lexi keeps your library on your device.
-      There are no accounts, no ads and no tracking. If you choose to read with
-      friends, what you share with them (your place in a shared book, your notes on
-      it, messages and book clubs) travels through Apple's iCloud. Photos of your
-      books' spines are shared only if you turn that on. Looking up a book sends its
-      barcode number or title to public book databases.</p>
+      There are no accounts, no ads and no tracking. Looking up a book sends its
+      barcode number, title or author to public book databases. The spine library
+      is on by default: Lexi asks Apple's iCloud for spine photos other readers
+      shared, and you can turn that off. Your own spine photos are shared only if
+      you turn that on. If you choose to read with friends, what you share with them
+      (your place in a book, your notes on it, messages and book clubs) is stored in
+      Apple's iCloud, where we can also see it.</p>
     </div>
 
     <h2>Who this covers</h2>
@@ -29,91 +31,160 @@
       <em>Lunara</em>), published by Methodical Enterprises LLC ("we," "us").</p>
 
     <h2>What stays on your device</h2>
-    <p>Your books, reading progress, reading log, notes, shelves, photos you take of
-      covers and spines, and settings are stored on your device. Lexi has no user
-      accounts and we run no servers. This information leaves your device only
-      through features of iOS you control (such as your own iCloud device backup)
-      and the features described below, each of which you choose to use.</p>
+    <p>Your books, reading progress, reading log, notes, shelves, favorites, spice
+      ratings and tropes, photos you add of covers and spines, and settings are
+      stored on your device, and Lexi's
+      widgets are drawn from them there. Lexi has no user accounts and we run no
+      servers. This information leaves your device only through features of iOS you
+      control (such as your own iCloud device backup, or the share sheet when you
+      share a quote card) and the features described below.</p>
+    <p>Importing a Goodreads library reads the export file you pick, on your
+      device. Lexi then looks up covers for the imported books, as described
+      next.</p>
 
-    <h2>Looking up a book online</h2>
-    <p>When you scan a barcode, search for a book, or open an author's other
-      books, Lexi sends <strong>that book's ISBN, or its title and author</strong>, to
-      public book databases to fill in its details and cover:</p>
+    <h2>Looking up books online</h2>
+    <p>Lexi asks public book databases for a book's details and cover:</p>
     <ul>
-      <li><strong>Open Library</strong> (openlibrary.org), run by the Internet
-        Archive.</li>
-      <li><strong>Google Books</strong> (googleapis.com).</li>
-      <li><strong>Apple Books</strong> search (itunes.apple.com).</li>
+      <li>When you <strong>scan a barcode</strong>, the book's ISBN is sent to all
+        three services below.</li>
+      <li>When you use <strong>Find Missing Covers</strong> or import a Goodreads
+        library, each book without a cover is looked up by its ISBN, or by its
+        title and author when it has none.</li>
+      <li>When you <strong>read a shelf from a photo</strong>, the photo stays on
+        your device; the words Lexi reads off each spine are sent to Open Library
+        to find the book.</li>
+      <li>When you <strong>open a book's page</strong>, its author's name is sent
+        to Apple Books and Open Library to show the author's other books. Adding
+        one of them looks up its page count by title and author.</li>
     </ul>
-    <p>Only the book's identifier or title is sent. Your notes, reading progress,
-      library, and any information about you are <strong>never</strong> included,
-      and no account or device identifier is attached. These services have their
-      own privacy policies and see the network request, including your IP address,
-      as with any web request. You can always add a book by typing it in
-      yourself.</p>
-
-    <h2>Reading together with friends</h2>
-    <p>Reading together is optional. Friends are added only in person, by scanning
-      each other's code. If you use it, Lexi stores the following in
-      <strong>Apple's CloudKit</strong> (part of iCloud), in Lexi's public database,
-      so your friends' devices can receive it:</p>
+    <p>The services Lexi contacts are:</p>
     <ul>
-      <li>A <strong>random reader ID</strong>, made on your device. It is what your
-        friend code contains; it is not your name, Apple ID or phone number.</li>
-      <li>For books you choose to share with a friend: <strong>your place in the
-        book</strong> and <strong>the notes you write on it</strong>, with where in
-        the book each note opens.</li>
-      <li><strong>Messages</strong> you send, with the time and the reader IDs of
-        the sender and recipient, and <strong>book clubs</strong> you create or
-        join: their name, members' reader IDs, and the books on their shelf.</li>
-      <li>If you <strong>report</strong> a message or note, a copy of what it said
-        and its ID, so it can be reviewed.</li>
+      <li><strong>Open Library</strong> (openlibrary.org, with covers from
+        covers.openlibrary.org), run by the Internet Archive.</li>
+      <li><strong>Google Books</strong> (www.googleapis.com, with covers from
+        books.google.com).</li>
+      <li><strong>Apple Books</strong> search (itunes.apple.com, with covers from
+        Apple's image servers at mzstatic.com).</li>
     </ul>
-    <p>The names you give your friends stay on your device and are never uploaded.
-      To tell you when a message arrives, Lexi asks iCloud to notify your device of
-      messages addressed to your reader ID; the notification's text is written on
-      your device. Reading together needs an iCloud account. Apple stores this data
-      under its own privacy policy, and we can see it only through Apple's CloudKit
-      tools, which we use solely to review reports and remove content that breaks
-      Lexi's community rules.</p>
+    <p>Only the ISBN, title, author's name or words read off a spine are sent.
+      Your notes, reading progress, library, and any information about you are
+      <strong>never</strong> included, and no account or device identifier is
+      attached. These services have their own privacy policies and see the network
+      request, including your IP address, as with any web request. You can always
+      add a book by typing it in yourself.</p>
 
     <h2>The spine library</h2>
-    <p>Lexi can show your book the real spine of its edition, photographed by
-      another Lexi reader. To find one, Lexi asks iCloud for spines by a code
-      derived from the book's ISBN (or its title and author). You can turn this off
-      in <em>Settings &rarr; Spine Library</em>.</p>
-    <p>If you turn on <strong>Share my spine photos</strong>, the photos you take of
-      your own books' spines are stored in Lexi's public CloudKit database, with the
-      book's ISBN or title and a random contributor ID (separate from your reader
-      ID), so readers with the same edition can see them. Only spine photos are
-      shared, never covers or other pictures, and only when the lettering on the
-      photo names the book. Any shared spine can be reported and removed.</p>
+    <p>Lexi can show a book the real spine of its edition, photographed by another
+      Lexi reader. This is <strong>on by default</strong>. For each book that has no
+      spine photo of its own, Lexi asks Lexi's public database in Apple's CloudKit
+      (part of iCloud) for spines, by a code made from the book's ISBN (or its title
+      and author). It does this when you open or return to Lexi and when you add
+      books, and asks about a book with no shared spine again only every few
+      days. These
+      lookups don't save anything in iCloud. To turn them off, switch off
+      <em>Settings &rarr; Spine Library &rarr; Use spines other readers
+      photographed</em>.</p>
+    <p><strong>Share my spine photos</strong>, in the same place, is off by
+      default. If you turn it on and agree to Lexi's community rules, the spine
+      photos you add (taken with the camera or chosen from your library), including
+      ones you added before, are stored in Lexi's public CloudKit database with the
+      book's ISBN (or title and author), the time, and a random contributor ID that
+      is separate from your reader ID, so readers with the same edition can see
+      them. Only spine photos are shared, never covers or other pictures, and only
+      when the lettering on the photo names the book. Sharing needs an iCloud
+      account; using other readers' spines doesn't. Turning sharing off stops new
+      photos from being shared; photos already shared stay until they are deleted
+      (see below).</p>
+    <p>You can report a shared spine from the book's page. It is taken off your
+      book at once, and you can also hide everything from the same contributor. A
+      report stores the spine's ID, whether you hid everything from that
+      contributor, and the time, so we can review it and delete the spine for
+      everyone if it breaks the rules.</p>
 
-    <h2>Camera and photo library</h2>
-    <p>Lexi can use the camera to scan a book's barcode, to photograph a cover or
-      spine, and to read a whole shelf of spines from one photo. Barcode frames and
-      shelf photos are processed on your device and not kept. Cover and spine
-      photos you take, or choose from your photo library, are stored on your device
-      as that book's image; a spine photo leaves your device only if you turn on
-      spine sharing, as described above. You can revoke access at any time in
-      <em>iOS Settings &rarr; Privacy &amp; Security</em>.</p>
+    <h2>Reading together with friends</h2>
+    <p>Reading together is optional and needs an iCloud account. Friends are added
+      by scanning each other's code in person (or typing it in when there's no
+      camera). If you use it, Lexi stores the following in Lexi's public database
+      in <strong>Apple's CloudKit</strong>, so your friends' devices can receive
+      it:</p>
+    <ul>
+      <li>A <strong>random reader ID</strong>, made on your device. It is what your
+        friend code contains; it is not your name, Apple ID or phone number. It is
+        kept in your iCloud Keychain, so it stays the same on your other devices
+        and if you reinstall Lexi.</li>
+      <li>For books you share with a friend: <strong>your place in the
+        book</strong>, and <strong>every note you write on it</strong>, with the
+        book's ISBN (or title and author), when you wrote it and where in the book
+        it opens. Your place and notes are stored once per book, not per friend, so
+        any reading friend who has your code and shares the same book with you can
+        see them too.</li>
+      <li><strong>Messages</strong> you send, with the time and the reader IDs of
+        the sender and recipient (or, in a group, the group's ID).</li>
+      <li><strong>Book clubs</strong> you create: their name, the date, members'
+        reader IDs, and the books on their shelf (ISBN, or title and author).</li>
+      <li>If you <strong>report</strong> a message or note: what kind it was, its
+        ID, its author's reader ID, a copy of what it said, and the time.</li>
+    </ul>
+    <p>iCloud also records, on everything Lexi saves there (including shared spine
+      photos and reports), an ID that Apple assigns to your iCloud account for
+      Lexi. It is not your name or Apple ID, but it is the same on everything you
+      save from that account.</p>
+    <p>The names you give your friends stay on your device and are never uploaded.
+      The first time you open Reading Friends, Lexi asks permission to show
+      notifications. To tell you when a message arrives, Lexi asks iCloud to wake
+      your device for messages addressed to your reader ID; the notification's text
+      is written on your device.</p>
+    <p><strong>Who can see it.</strong> Lexi finds each item only by reader IDs,
+      book and group IDs that were handed over in person, and never lists or
+      searches readers, so in practice only the friends and club members you read
+      with see what you share. Records in a public CloudKit database can be read by
+      the Lexi app on any device that knows where to look, though. Apple stores this
+      data under its own privacy policy. We can see all of it through Apple's
+      CloudKit tools, and we use that only to review reports and remove content that
+      breaks Lexi's community rules.</p>
+    <p><strong>Reports, blocking and leaving.</strong> Anything a friend sends you
+      can be reported. It disappears from your device at once, and we review the
+      report and delete the item for everyone if it breaks the rules. Blocking a
+      reader removes everything they sent you from your device and stops them being
+      your friend; nothing is sent anywhere and they aren't told. Leaving a book club
+      removes it from your device; if someone else created it, your reader ID can
+      stay on its member list.</p>
+
+    <h2>Camera, photos and Image Playground</h2>
+    <p>Lexi uses the camera, only when you open it, to scan a book's barcode, to
+      photograph a cover or spine, and to read a whole shelf of spines from one
+      photo. Barcode frames and shelf photos are read on your device and not kept.
+      Cover and spine photos you take are stored on your device as that book's
+      image, and the lettering on a cover photo is read on your device to fill in
+      a new book's title and author. You can turn camera access off at any time
+      in <em>iOS
+      Settings &rarr; Privacy &amp; Security &rarr; Camera</em>.</p>
+    <p>To use a picture from your photo library, Lexi uses the iOS photo picker:
+      Lexi receives only the photo you choose and never has access to the rest of
+      your library. On devices that support it, you can have Image Playground draw a
+      cover from the book's title; Apple creates the picture, and it is stored on
+      your device as the book's cover.</p>
+    <p>A spine photo leaves your device only if you turn on spine sharing, as
+      described above.</p>
 
     <h2>Analytics, tracking, and advertising</h2>
-    <p>Lexi contains no analytics, no advertising SDKs, and no tracking of any kind.
-      We do not build a profile of you and do not track you across apps or
-      websites.</p>
+    <p>Lexi contains no analytics, no advertising SDKs, no crash-reporting services
+      and no tracking of any kind. We do not build a profile of you and do not track
+      you across apps or websites.</p>
 
     <h2>Children's privacy</h2>
     <p>Lexi does not ask for anyone's name, email or age, and its reading-together
-      features connect only people who have met in person to scan each other's
-      code.</p>
+      features connect only people who have exchanged codes in person.</p>
 
     <h2>Keeping and deleting your data</h2>
-    <p>Your library lives on your device, and deleting Lexi removes it. What you
-      shared through reading together or the spine library stays in iCloud until it
-      is removed. Blocking or removing a friend removes their content from your
-      device. To have everything you shared deleted, email us the code shown in
-      <em>Settings &rarr; Reading Friends</em> and we will delete it.</p>
+    <p>Your library lives on your device, and deleting Lexi removes it. Your reader
+      ID stays in your iCloud Keychain. What you shared through reading together or
+      the spine library, and any reports, stay in iCloud until they are deleted;
+      nothing there expires on its own, and Lexi can't delete it from inside the
+      app. Blocking or removing a friend removes their content from your device
+      only. To have everything you shared deleted, email us the code shown under
+      your friend code in <em>Settings &rarr; Reading Friends</em> (and, for spine
+      photos, which books you shared spines for), and we will delete it.</p>
 
     <h2>Changes to this policy</h2>
     <p>If we change this policy, we'll update the date at the top of this page and
