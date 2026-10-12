@@ -19,13 +19,17 @@ Repo: <https://github.com/WheatBit/AppPrivacy>
 ├── giftlist/  privacy.html  + style.css   (iPhone and Android; not released yet)
 ├── breathe/   privacy.html  + style.css   (not released yet)
 ├── holibop/   privacy.html  + style.css   (not released yet)
+├── flipstudy/ privacy.html (styles inline)   (App Store: FlipStudy: Flashcards)
+├── gridironlegacy/ privacy.html + style.css (not released yet)
+├── frost/     privacy.html  + style.css   (test build; the one app with a server of ours)
 ├── penna/     privacy.html  → redirect to scribeme/
 ├── weave/     privacy.html  → redirect to dayweaver/
 └── lunara/    privacy.html  → redirect to lexi/
 ```
 
-FlipStudy manages its own policy in its own repo
-(<https://richardswheatley.github.io/FlipStudy>); the landing page links to it.
+FlipStudy's code lives in a separate repo, but its policy now lives here in `flipstudy/`.
+Its old address (<https://richardswheatley.github.io/FlipStudy>) no longer resolves, so
+App Store Connect must point at the new URL below.
 
 **Folder names track the current App Store name.** Three apps were renamed after
 launch (Penna → BookWrite: ScribeMe, Weave → DayWeaver, Lunara → Book Tracker:
@@ -53,6 +57,8 @@ permission — and make the page match. As of October 2026:
 | GiftList | Store pages, fetched on the phone only when the user taps Check prices. iPhone sharing: sealed lists in the owner's private CloudKit database. `.giftlist` files the user sends |
 | Breathe | Nothing. Optional events in the user's own calendar |
 | HoliBop! | Nothing. No network at all |
+| Gridiron Legacy | Nothing. No network at all |
+| Frost | Sealed (end-to-end encrypted) messages through our own small relay, deleted after 7 days; a sealed push handle for Apple push. The relay can't read messages and keeps no IP addresses |
 | BlueBench | Nothing. Bluetooth only; exports go wherever the user shares them |
 | FlipStudy | On-device translation by default; cloud translation (Google/Microsoft) only if a parent enables it with their own API key |
 
@@ -81,6 +87,9 @@ Under each app's **App Privacy → Privacy Policy URL**:
 | GiftList | `https://wheatbit.github.io/AppPrivacy/giftlist/privacy.html` |
 | Breathe | `https://wheatbit.github.io/AppPrivacy/breathe/privacy.html` |
 | HoliBop! | `https://wheatbit.github.io/AppPrivacy/holibop/privacy.html` |
+| FlipStudy: Flashcards | `https://wheatbit.github.io/AppPrivacy/flipstudy/privacy.html` |
+| Gridiron Legacy | `https://wheatbit.github.io/AppPrivacy/gridironlegacy/privacy.html` |
+| Frost | `https://wheatbit.github.io/AppPrivacy/frost/privacy.html` |
 
 App Store Connect also asks for a **Support URL** — you can reuse the landing page
 (`https://wheatbit.github.io/AppPrivacy/`) or add a dedicated support page later.
@@ -90,7 +99,7 @@ App Store Connect also asks for a **Support URL** — you can reuse the landing 
 After editing the root `style.css`:
 
 ```sh
-for d in scribeme dayweaver lexi bluebench giftlist breathe holibop penna weave lunara; do cp style.css "$d/style.css"; done
+for d in scribeme dayweaver lexi bluebench giftlist breathe holibop gridironlegacy frost penna weave lunara; do cp style.css "$d/style.css"; done
 ```
 
 ## Adding another app

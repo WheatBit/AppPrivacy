@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Frost — Privacy Policy</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="wrap">
+    <header class="page">
+      <p class="eyebrow">Methodical Enterprises LLC</p>
+      <h1>Frost — Privacy Policy</h1>
+      <p class="updated">Last updated: October 12, 2026</p>
+    </header>
+
+    <div class="tldr">
+      <p><strong>The short version:</strong> Frost is an encrypted group messenger
+      for iPhone. There is no phone number, no email and no account. Your keys are
+      made on your iPhone and never leave it. Unlike our other apps, Frost uses a
+      server of ours, called the postbox. It passes sealed messages between phones
+      and deletes them after seven days. It is built so that we can't read them, and
+      it stores no names, no phone numbers and no IP addresses. Notifications never
+      show a message, screenshots of Frost come out blank, and nothing can be shared
+      out of the app. Frost is a test build and has not been independently audited,
+      so please don't trust it with real secrets yet.</p>
+    </div>
+
+    <h2>Who this covers</h2>
+    <p>This policy applies to Frost, an end-to-end encrypted group messenger for
+      iPhone, published by Methodical Enterprises LLC ("we," "us"). "Frost" is a
+      working name, and the name may change.</p>
+
+    <h2>A test build, not yet audited</h2>
+    <p>Frost is a test prototype. Its encryption uses MLS, an open standard for group
+      messaging, with post-quantum keys. Each piece is tested on its own, but the whole
+      app has not yet been tested from end to end on two phones, and no independent
+      security audit has been done. An audit comes before real use. Until then,
+      <strong>don't use Frost for anything you need to keep secret</strong>. This page
+      describes how Frost is built to work. A flaw found later could mean it doesn't
+      fully protect what this page says it protects.</p>
+
+    <h2>What stays on your iPhone</h2>
+    <p>The name you choose, your keys, your chats, your contacts' names and keys,
+      your notification disguise and your settings are stored on your iPhone. Frost
+      never asks for your phone number or email address, and it doesn't read your
+      contacts.</p>
+    <ul>
+      <li>Your keys are kept in the iPhone's Keychain. They can be read only while the
+        phone is unlocked, and they are never copied to backups or other
+        devices.</li>
+      <li>Your chats are saved in an encrypted file that can't be read while the
+        phone is locked. It is left out of iCloud and computer backups.</li>
+      <li>Each message waits sealed under its own key until you open it. Opening it
+        destroys that key, so a message can be opened only once.</li>
+      <li>Frost needs Face ID or your passcode to open, and it locks again whenever you
+        leave it. It won't run on an iPhone without a passcode.</li>
+    </ul>
+
+    <h2>Our server: the postbox</h2>
+    <p>Phones in a chat can't reach each other directly, so Frost passes messages
+      through a server we run at <em>relay.methodical-ep.com</em>, called the postbox.
+      Each chat has its own mailbox there. Your phone leaves sealed messages in the
+      mailbox and collects new ones from it. While Frost is open and unlocked, it
+      checks your mailboxes every couple of seconds. All traffic goes over HTTPS.</p>
+    <p><strong>What the postbox receives:</strong></p>
+    <ul>
+      <li><strong>Mailbox ids.</strong> Random numbers made on a phone. They don't
+        contain or point to anyone's name, phone or account.</li>
+      <li><strong>An access token for each mailbox.</strong> Made on the phones from
+        a secret the postbox never sees. The postbox keeps only a scrambled form
+        (a SHA-256 hash) to check it.</li>
+      <li><strong>Sealed messages.</strong> Everything a phone sends, including
+        messages, read receipts, group changes and contact cards, is encrypted on the
+        phone and padded to exactly the same size (8,192 bytes). The keys to open them
+        exist only on the phones in that chat. The postbox can't tell what kind of
+        message it holds or how long it is.</li>
+      <li><strong>Sealed push handles,</strong> if notifications are set up. See
+        <em>Notifications</em> below.</li>
+    </ul>
+    <p><strong>What the postbox stores, and for how long:</strong></p>
+    <ul>
+      <li>Sealed messages, each stamped only with the hour it arrived. Each one is
+        <strong>deleted seven days after it arrives</strong>, whether or not anyone has
+        read it. Deleted rows are overwritten, not just marked as free.</li>
+      <li>Mailbox records: the random id, the hashed access token, and a running
+        count used to keep messages in order. These are not deleted when a chat ends,
+        but they say nothing about who used them.</li>
+      <li>Sealed push handles, until Apple reports that the phone no longer has Frost.
+        See below.</li>
+    </ul>
+    <p><strong>What the postbox doesn't store:</strong> names, phone numbers, email
+      addresses, keys, message text, the exact time of any message, IP addresses, or
+      Apple push tokens. It has no accounts. Its logs hold only totals, such as how
+      many messages arrived in the last ten minutes, never which mailbox or who. We
+      don't back up the postbox.</p>
+    <p><strong>What it can still see while running:</strong> like any server, the
+      postbox can't avoid seeing some things in the moment it answers a request. Your
+      IP address reaches the server so it can answer you; the web server in front of
+      the postbox keeps no logs and doesn't pass your address on to the postbox, and
+      nothing records it. Someone in control of the running server could also watch
+      the timing of requests and which mailboxes are checked together. And so that
+      your phone isn't woken for your own message, it shows the postbox its sealed push
+      handle when it sends; the postbox can't open the handle, but it can tell which of
+      the phones in that mailbox sent the message. None of this is written down, but
+      you should know it is possible.</p>
+
+    <h2>Notifications</h2>
+    <p>To tell you a message is waiting, Frost uses Apple's push notification service
+      (APNs). Frost asks permission to show notifications when you set it up. Two
+      separate parts of our server share the job, so that neither one alone can tell
+      which chats are on which phone:</p>
+    <ul>
+      <li>Your iPhone gives Frost an Apple push token. Frost keeps it only in memory.
+        Before sending it anywhere, Frost seals it so that only our
+        <strong>notifier</strong> can open it, and seals it afresh for each chat. The
+        postbox stores these sealed handles next to each mailbox, but it can't open them
+        or tell that two of them belong to the same phone.</li>
+      <li>When a message arrives, the postbox passes the sealed handles for that
+        mailbox to the notifier, without saying which mailbox they came from. The
+        notifier waits a random moment, opens them, and asks Apple to wake each phone.
+        It has no database: push tokens exist in its memory only while a notification
+        is being sent.</li>
+      <li>Every notification is identical and contains <strong>no content</strong>:
+        no sender, no chat and no message. Apple learns only that Frost sent your phone
+        a notification, and when. Your iPhone then replaces it with a disguise you
+        choose in Frost's Settings (by default, a weather alert). Neither our server
+        nor Apple ever learns your disguise. iOS still shows Frost's icon.</li>
+      <li>While Frost is open, new messages appear in the chat rather than as
+        notifications.</li>
+    </ul>
+    <p>If you turn notifications off, Frost still works: you see new messages when you
+      open it. Some test builds don't have notifications set up; they never send a
+      push token at all.</p>
+    <p>For now, the postbox and the notifier run on the same server, both run by us.
+      Someone in control of that running server could match up the timing of the two.
+      The notifier on its own can see which phones are woken at the same moment, so it
+      could guess that they share a chat, though not which one.</p>
+
+    <h2>Connecting: face to face only</h2>
+    <p>You connect with someone only in person. One phone shows a code, and the other
+      scans it with Frost's own scanner. There are no invite links: an invite is never
+      sent through another app, a text message or the clipboard. The code holds a new
+      mailbox's id and a secret. The postbox sees only the mailbox id; the secret, which
+      unlocks the invite, never reaches it. Your name and public keys go into that
+      mailbox sealed with the secret, so the postbox can't read them. An unused invite
+      is deleted from the postbox after seven days, like any other message.</p>
+    <p>Scanning uses the camera, so iOS asks permission the first time. The camera is
+      used only to read the code. Nothing is recorded or saved. You can compare
+      safety numbers afterwards to make sure nobody is in the middle.</p>
+
+    <h2>How messages disappear</h2>
+    <ul>
+      <li>When you open a message, it shows for the chat's reading time (between 10
+        seconds and 5 minutes, set when the chat is made), then it's gone from your
+        phone.</li>
+      <li>A message you don't open within seven days expires on your phone unread.</li>
+      <li>Copies on the postbox are deleted seven days after they arrive, whatever
+        happened to them.</li>
+      <li>When you open someone's message, Frost tells them, inside the encrypted
+        chat, that you read it.</li>
+    </ul>
+
+    <h2>Leaving a group, deleting a chat, deleting the app</h2>
+    <ul>
+      <li><strong>Leaving a group:</strong> your phone sends a sealed message saying
+        you're leaving, then deletes the chat and its keys. The group's admin's phone
+        then removes you, changes the group's keys and moves the group to a new
+        mailbox, so you can't read anything sent after that. If you run the group,
+        leaving closes it for everyone.</li>
+      <li><strong>Deleting a chat</strong> destroys its messages and keys on your phone.
+        Nobody else is told. The other person's app may still send messages to that
+        chat's mailbox, and your phone may still get a disguised notification when
+        they do, but those messages can't be opened.</li>
+      <li><strong>Wipe everything</strong> in Settings destroys your keys, chats and
+        waiting messages on your iPhone. It can't be undone.</li>
+      <li><strong>Deleting Frost</strong> removes its files from your iPhone. iOS may
+        keep Frost's keys in the Keychain after an app is deleted; if you install Frost
+        again, it erases them when it first starts. To remove them right away, use
+        <em>Wipe everything</em> before deleting the app.</li>
+      <li><strong>On the postbox:</strong> nothing there says which mailboxes are yours,
+        so there is no account for us to delete. Messages are deleted after seven days
+        in every case. Once Frost is off your phone, Apple tells the notifier the next
+        time it tries to wake you, and the postbox then deletes your sealed push
+        handles.</li>
+    </ul>
+
+    <h2>Where the server runs</h2>
+    <p>The postbox and the notifier run on a single rented server that we manage,
+      reached at <em>relay.methodical-ep.com</em>. The postbox has no access to the
+      internet; only the notifier can reach out, and only to Apple's push service.
+      Builds we install directly from our own development computer for testing may use
+      a test relay on that computer instead.</p>
+
+    <h2>Nothing leaves, nothing is captured</h2>
+    <ul>
+      <li><strong>Screenshots:</strong> screenshots, screen recordings and screen
+        mirroring show a blank screen in place of Frost. This relies on a method iOS
+        uses for password fields, and Settings shows whether it is working. Nothing can
+        stop someone photographing the screen with another camera. If someone takes a
+        screenshot while a message is open, the chat is told.</li>
+      <li><strong>No sharing out:</strong> Frost's text fields offer only Paste. There
+        is no Copy, Cut, Share, Look Up, Translate or Writing Tools, and opened
+        messages can't be selected or copied. There is no way to send a message, photo
+        or file out of Frost. Frost handles text only.</li>
+      <li><strong>Keyboards:</strong> Frost allows only Apple's own keyboard, because
+        other keyboards can record what you type. Autocorrect and spell checking are
+        off in Frost.</li>
+      <li><strong>Dictation:</strong> Frost can't turn off the keyboard's dictation
+        button. If you dictate, iOS may send your speech to Apple to turn it into text,
+        under Apple's privacy policy. Type instead if that matters to you.</li>
+      <li><strong>The app switcher:</strong> Frost covers itself whenever it leaves the
+        screen, before iOS takes the picture it shows in the app switcher.</li>
+      <li><strong>No network leftovers:</strong> Frost talks to the postbox without
+        saving any responses, cookies or connection records on your phone.</li>
+    </ul>
+
+    <h2>Face ID and passcode</h2>
+    <p>Frost opens only after Face ID, Touch ID or your device passcode. This check is
+      performed entirely by iOS. Frost is told only whether it succeeded &mdash;
+      <strong>no biometric information is ever available to the app</strong>, to us,
+      or to anyone else.</p>
+
+    <h2>Passphrase-locked chats</h2>
+    <p>You can lock a chat with a passphrase you agree face to face. Messages in it are
+      sealed a second time with a key made from the passphrase. Frost never saves the
+      passphrase or its key, and they never leave your phone. If everyone loses the
+      passphrase, the chat can never be read again, and we can't help recover it.</p>
+
+    <h2>Reporting someone</h2>
+    <p>You can report a person from a chat's info. Reporting blocks them on your phone.
+      Where reporting is set up, Frost then opens your Mail app with an email to us
+      containing only the reason and what you type. Frost can't read anyone's messages,
+      so it never attaches them. We receive only what you choose to send, and use it
+      only to look into the report and answer you. In builds where reporting isn't set
+      up yet, the person is blocked and nothing is sent.</p>
+
+    <h2>Analytics, tracking, and advertising</h2>
+    <p>Frost contains no analytics, no crash reporting, no advertising and no
+      tracking of any kind. It uses no third-party services besides Apple's push
+      service. Its encryption library (OpenMLS) is open source and runs on your phone.
+      We do not build a profile of you and do not track you across apps or websites.
+      There are no purchases, subscriptions or ads.</p>
+
+    <h2>Children's privacy</h2>
+    <p>Frost doesn't ask anyone for their age, phone number, email or real name, and we
+      don't knowingly collect personal information from children. Nothing on our
+      server identifies who you are.</p>
+
+    <h2>Keeping and deleting your data</h2>
+    <p>Your chats live on your iPhone, and you control them: delete a chat, use
+      <em>Wipe everything</em>, or delete the app. On our server, sealed messages are
+      deleted after seven days, and sealed push handles are deleted once Apple reports
+      your phone no longer has Frost. Because the postbox holds nothing that says who
+      you are, we can't look up or hand over your data, and there is no account to
+      close. There is no way to recover chats, keys or messages if you lose your
+      iPhone.</p>
+
+    <h2>Changes to this policy</h2>
+    <p>If we change this policy, we'll update the date at the top of this page and
+      post the new version here.</p>
+
+    <h2>Contact</h2>
+    <p>Questions? Email <a href="mailto:dwheat@methodical-ep.com">dwheat@methodical-ep.com</a>.</p>
+
+    <footer class="page">
+      <p>Methodical Enterprises LLC &middot; <a href="../index.html">All app policies</a></p>
+    </footer>
+  </div>
+</body>
+</html>
