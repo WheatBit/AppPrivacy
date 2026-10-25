@@ -11,7 +11,7 @@
     <header class="page">
       <p class="eyebrow">Methodical Enterprises LLC</p>
       <h1>Book Tracker: Lexi — Privacy Policy</h1>
-      <p class="updated">Last updated: October 12, 2026</p>
+      <p class="updated">Last updated: October 13, 2026</p>
     </header>
 
     <div class="tldr">
@@ -45,8 +45,11 @@
     <h2>Looking up books online</h2>
     <p>Lexi asks public book databases for a book's details and cover:</p>
     <ul>
-      <li>When you <strong>scan a barcode</strong>, the book's ISBN is sent to all
-        three services below.</li>
+      <li>When you <strong>scan a barcode</strong> or scan from a photo, the book's
+        ISBN is sent to Lexi's catalog, Open Library and Apple Books, and to Google
+        Books when they can't name the book or show its cover.</li>
+      <li>A book added without its details or cover is asked about again, by its
+        ISBN, at most once a day, until Lexi's catalog can fill it in.</li>
       <li>When you use <strong>Find Missing Covers</strong> or import a Goodreads
         library, each book without a cover is looked up by its ISBN, or by its
         title and author when it has none.</li>
@@ -59,6 +62,13 @@
     </ul>
     <p>The services Lexi contacts are:</p>
     <ul>
+      <li><strong>Lexi's catalog</strong> (lexi-catalog.richardswheatley.workers.dev),
+        run by us on Cloudflare. It answers with books the other services don't
+        list yet — special editions, new releases — and their covers. For an ISBN
+        it doesn't hold, it asks Open Library, Apple Books and Google Books itself
+        and keeps their answer for every reader. An ISBN nobody knows is kept on a
+        list of books to find, with how often and when it was asked for, never
+        who asked. The catalog keeps no request logs.</li>
       <li><strong>Open Library</strong> (openlibrary.org, with covers from
         covers.openlibrary.org), run by the Internet Archive.</li>
       <li><strong>Google Books</strong> (www.googleapis.com, with covers from
@@ -67,6 +77,8 @@
         Apple's image servers at mzstatic.com).</li>
     </ul>
     <p>Only the ISBN, title, author's name or words read off a spine are sent.
+      Spine and cover pictures in Lexi's catalog come from publishers' listings
+      and from photos we took of our own books.
       Your notes, reading progress, library, and any information about you are
       <strong>never</strong> included, and no account or device identifier is
       attached. These services have their own privacy policies and see the network
