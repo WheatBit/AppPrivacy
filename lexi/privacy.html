@@ -11,16 +11,17 @@
     <header class="page">
       <p class="eyebrow">Methodical Enterprises LLC</p>
       <h1>Book Tracker: Lexi — Privacy Policy</h1>
-      <p class="updated">Last updated: October 12, 2026</p>
+      <p class="updated">Last updated: November 9, 2026</p>
     </header>
 
     <div class="tldr">
       <p><strong>The short version:</strong> Lexi keeps your library on your device.
       There are no accounts, no ads and no tracking. Looking up a book sends its
-      barcode number, title or author to public book databases. The spine library
+      barcode number, title or author to public book databases and to Lexi's own
+      catalog, which holds book details and pictures and nothing about you. The spine library
       is on by default: Lexi asks Apple's iCloud for spine photos other readers
-      shared, and you can turn that off. Your own spine photos are shared only if
-      you turn that on. If you choose to read with friends, what you share with them
+      shared, and you can turn that off. Your own spine, back-cover and page-edge
+      photos are shared only if you turn that on. If you choose to read with friends, what you share with them
       (your place in a book, your notes on it, messages and book clubs) is stored in
       Apple's iCloud, where we can also see it.</p>
     </div>
@@ -34,8 +35,9 @@
     <p>Your books, reading progress, reading log, notes, shelves, favorites, spice
       ratings and tropes, photos you add of covers and spines, and settings are
       stored on your device, and Lexi's
-      widgets are drawn from them there. Lexi has no user accounts and we run no
-      servers. This information leaves your device only through features of iOS you
+      widgets are drawn from them there. Lexi has no user accounts. The only server we run is
+      Lexi's catalog (below), which holds books and their pictures, never your
+      library or anything about you. This information leaves your device only through features of iOS you
       control (such as your own iCloud device backup, or the share sheet when you
       share a quote card) and the features described below.</p>
     <p>Importing a Goodreads library reads the export file you pick, on your
@@ -45,8 +47,11 @@
     <h2>Looking up books online</h2>
     <p>Lexi asks public book databases for a book's details and cover:</p>
     <ul>
-      <li>When you <strong>scan a barcode</strong>, the book's ISBN is sent to all
-        three services below.</li>
+      <li>When you <strong>scan a barcode</strong> or scan from a photo, the book's
+        ISBN is sent to Lexi's catalog, Open Library and Apple Books, and to Google
+        Books when they can't name the book or show its cover.</li>
+      <li>A book added without its details or cover is asked about again, by its
+        ISBN, at most once a day, until Lexi's catalog can fill it in.</li>
       <li>When you use <strong>Find Missing Covers</strong> or import a Goodreads
         library, each book without a cover is looked up by its ISBN, or by its
         title and author when it has none.</li>
@@ -56,9 +61,25 @@
       <li>When you <strong>open a book's page</strong>, its author's name is sent
         to Apple Books and Open Library to show the author's other books. Adding
         one of them looks up its page count by title and author.</li>
+      <li>When you <strong>add a book by typing its title</strong>, the words you
+        type are sent to Open Library to show matching books.</li>
+      <li>Lexi asks its catalog, by ISBN or by title and author, for a book's
+        other printings, its painted page edges, and books that match the tropes
+        you choose for suggestions (it sends the trope names, such as
+        "enemies to lovers").</li>
+      <li>When a book you add isn't listed anywhere, its ISBN, title and author
+        are sent to Lexi's catalog so it can be found and filled in for every
+        reader.</li>
     </ul>
     <p>The services Lexi contacts are:</p>
     <ul>
+      <li><strong>Lexi's catalog</strong> (lexi-catalog.richardswheatley.workers.dev),
+        run by us on Cloudflare. It answers with books the other services don't
+        list yet — special editions, new releases — and their covers. For an ISBN
+        it doesn't hold, it asks Open Library, Apple Books and Google Books itself
+        and keeps their answer for every reader. An ISBN nobody knows is kept on a
+        list of books to find, with how often and when it was asked for, never
+        who asked. The catalog keeps no request logs.</li>
       <li><strong>Open Library</strong> (openlibrary.org, with covers from
         covers.openlibrary.org), run by the Internet Archive.</li>
       <li><strong>Google Books</strong> (www.googleapis.com, with covers from
@@ -66,7 +87,10 @@
       <li><strong>Apple Books</strong> search (itunes.apple.com, with covers from
         Apple's image servers at mzstatic.com).</li>
     </ul>
-    <p>Only the ISBN, title, author's name or words read off a spine are sent.
+    <p>Only the ISBN, title, author's name, trope names, words you type to find
+      a book or words read off a spine are sent.
+      Pictures in Lexi's catalog come from publishers' listings, from photos we
+      took of our own books, and from readers who share their photos (below).
       Your notes, reading progress, library, and any information about you are
       <strong>never</strong> included, and no account or device identifier is
       attached. These services have their own privacy policies and see the network
@@ -90,11 +114,21 @@
       ones you added before, are stored in Lexi's public CloudKit database with the
       book's ISBN (or title and author), the time, and a random contributor ID that
       is separate from your reader ID, so readers with the same edition can see
-      them. Only spine photos are shared, never covers or other pictures, and only
-      when the lettering on the photo names the book. Sharing needs an iCloud
-      account; using other readers' spines doesn't. Turning sharing off stops new
-      photos from being shared; photos already shared stay until they are deleted
-      (see below).</p>
+      them. Only spine photos go there, and only when the lettering on the photo
+      names the book. Sharing there needs an iCloud account; using other readers'
+      spines doesn't.</p>
+    <p>With the same setting on, Lexi also sends Lexi's catalog your spine photos,
+      and your back-cover and page-edge photos where the catalog has none for that
+      edition, with the book's ISBN (and its title and author if the catalog
+      doesn't know it yet). No name, account, reader ID or device identifier goes
+      with them, and this doesn't need iCloud. A photo that becomes the catalog's
+      picture for that edition is shown to every Lexi reader and stays after you
+      stop sharing. To stop more than a set number of photos a day coming from one
+      place, the catalog keeps a code made from your IP address, the date and a
+      secret key, for that day only. It can't be turned back into your
+      address.</p>
+    <p>Turning sharing off stops new photos from being shared; photos already
+      shared stay until they are deleted (see below).</p>
     <p>You can report a shared spine from the book's page. It is taken off your
       book at once, and you can also hide everything from the same contributor. A
       report stores the spine's ID, whether you hid everything from that
@@ -184,7 +218,9 @@
       app. Blocking or removing a friend removes their content from your device
       only. To have everything you shared deleted, email us the code shown under
       your friend code in <em>Settings &rarr; Reading Friends</em> (and, for spine
-      photos, which books you shared spines for), and we will delete it.</p>
+      photos, which books you shared spines for), and we will delete it. Photos
+      in Lexi's catalog carry nothing that ties them to you, so to have one
+      removed, tell us the book and which photo.</p>
 
     <h2>Changes to this policy</h2>
     <p>If we change this policy, we'll update the date at the top of this page and
