@@ -56,7 +56,7 @@ permission — and make the page match. As of October 2026:
 | DayWeaver | Nothing over the network in the current build (the optional Google connection, read-only Calendar + Tasks, isn't configured). Writes to Apple Calendar and Reminders when the user syncs or edits |
 | GiftList | Store pages, fetched on the phone only when the user taps Check prices. iPhone sharing: sealed lists in the owner's private CloudKit database. `.giftlist` files the user sends |
 | Breathe | Nothing. Optional events in the user's own calendar |
-| HoliBop! | Nothing. Downloads holiday pictures from art.methodical-ep.com (Cloudflare R2), sending nothing about the user. From iPhone 1.3, an optional tip through Apple's In-App Purchase, with no record kept |
+| HoliBop! | Nothing. Downloads holiday pictures from art.methodical-ep.com (Cloudflare R2), sending nothing about the user. From iPhone 1.3 (and Android to match), an optional tip through Apple or Google Play, with no record kept |
 | Gridiron Legacy | Nothing. No network at all |
 | Frost | Sealed (end-to-end encrypted) messages through our own small relay, deleted after 7 days; a sealed push handle for Apple push. The relay can't read messages and keeps no IP addresses |
 | BlueBench | Nothing. Bluetooth only; exports go wherever the user shares them |
